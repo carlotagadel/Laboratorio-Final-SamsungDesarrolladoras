@@ -76,10 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->close();
         exit;
     }
-
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -99,44 +96,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Formulario de registro</h1>
 
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" />
-        <?php if (!empty($nombreError)): ?>
-            <p class="error">
-                <?php echo $nombreError; ?>
-            </p>
-        <?php endif; ?>
+        <input type="text" name="nombre" id="nombre" required />
+        <p id="nombreError" class="error"></p>
 
         <label for="apellido1">Primer apellido</label>
-        <input type="text" name="apellido1" id="apellido1" />
-        <?php if (!empty($apellidoError)): ?>
-            <p class="error">
-                <?php echo $apellidoError; ?>
-            </p>
-        <?php endif; ?>
+        <input type="text" name="apellido1" id="apellido1" required />
+        <p id="apellidoError" class="error"></p>
 
         <label for="apellido2">Segundo apellido</label>
-        <input type="text" name="apellido2" id="apellido2" />
+        <input type="text" name="apellido2" id="apellido2" required />
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <?php if (!empty($emailError)): ?>
-            <p class="error">
-                <?php echo $emailError; ?>
-            </p>
-        <?php endif; ?>
+        <input type="email" name="email" id="email" required/>
+        <p id="emailError" class="error"></p>
 
         <label for="login">Login</label>
-        <input type="text" name="login" id="login" />
+        <input type="text" name="login" id="login" required/>
 
         <label for="pass">Contraseña</label>
-        <input type="password" name="pass" id="pass" />
-        <?php if (!empty($passError)): ?>
-            <p class="error">
-                <?php echo $passError; ?>
-            </p>
-        <?php endif; ?>
+        <input type="password" name="pass" id="pass" required/>
+        <p id="passError" class="error"></p>
 
         <input class="form-btn" name="submit" type="submit" value="Registrarse" />
+
+        <script>
+            document.getElementById('nombre').addEventListener('input', validarNombre);
+            document.getElementById('apellido1').addEventListener('input', validarApellidos);
+            document.getElementById('apellido2').addEventListener('input', validarApellidos);
+            document.getElementById('email').addEventListener('input', validarEmail);
+            document.getElementById('pass').addEventListener('input', validarPassword);
+
+            function validarNombre() {
+                var nombreInput = document.getElementById('nombre');
+                var nombreError = document.getElementById('nombreError');
+
+                if (/^[A-Za-z]+$/.test(nombreInput.value)) {
+                    nombreError.textContent = '';
+                } else {
+                    nombreError.textContent = 'El nombre no debe contener números.';
+                }
+            }
+
+            function validarApellidos() {
+                var apellido1Input = document.getElementById('apellido1');
+                var apellido2Input = document.getElementById('apellido2');
+                var apellidoError = document.getElementById('apellidoError');
+
+                if (/^[A-Za-z]+$/.test(apellido1Input.value) && /^[A-Za-z]+$/.test(apellido2Input.value)) {
+                    apellidoError.textContent = '';
+                } else {
+                    apellidoError.textContent = 'Los apellidos no deben contener números.';
+                }
+            }
+
+            function validarEmail() {
+                var emailInput = document.getElementById('email');
+                var emailError = document.getElementById('emailError');
+
+                if (emailInput.validity.valid) {
+                    emailError.textContent = '';
+                } else {
+                    emailError.textContent = 'El email ingresado no es válido.';
+                }
+            }
+
+            function validarPassword() {
+                var passInput = document.getElementById('pass');
+                var passError = document.getElementById('passError');
+
+                if (passInput.value.length >= 4 && passInput.value.length <= 8) {
+                    passError.textContent = '';
+                } else {
+                    passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres.';
+                }
+            }
+        </script>
     </form>
 
 </body>

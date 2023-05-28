@@ -75,7 +75,8 @@
   ?>
 
   <br>
-  <a href="index.html">Volver al formulario</a>
+  
+  <a href="index.php">Volver al formulario</a>
 
 </body>
 </html>
