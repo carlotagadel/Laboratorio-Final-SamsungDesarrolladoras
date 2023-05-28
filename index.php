@@ -4,40 +4,26 @@ $username = "root";
 $password = '';
 $dbname = "cursosql";
 
-$nombre = "";
-$apellido1 = "";
-$apellido2 = "";
-$email = "";
-$login = "";
-$pass = "";
-$nombreError = "";
-$apellido1Error = "";
-$apellido2Error = "";
-$emailError = "";
-$passError = "";
+$nombreError = $apellido1Error = $apellido2Error = $emailError = $passError = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
-    $apellido1 = isset($_POST['apellido1']) ? $_POST['apellido1'] : '';
-    $apellido2 = isset($_POST['apellido2']) ? $_POST['apellido2'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $login = isset($_POST['login']) ? $_POST['login'] : '';
-    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
+    $nombre = $_POST['nombre'] ?? '';
+    $apellido1 = $_POST['apellido1'] ?? '';
+    $apellido2 = $_POST['apellido2'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $login = $_POST['login'] ?? '';
+    $pass = $_POST['pass'] ?? '';
 
     $nombreValido = preg_match('/^[A-Za-z]+$/', $nombre);
-    $apellidoValido1 = preg_match('/^[A-Za-z]+$/', $apellido1);
-    $apellidoValido2 = preg_match('/^[A-Za-z]+$/', $apellido2);
+    $apellidoValido = preg_match('/^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/', $apellido1) && preg_match('/^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/', $apellido2);
     $emailValido = filter_var($email, FILTER_VALIDATE_EMAIL);
     $passValido = (strlen($pass) >= 4 && strlen($pass) <= 8);
 
     if (!$nombreValido) {
         $nombreError = "El nombre no debe contener números.";
     }
-    if (!$apellidoValido1) {
-        $apellido1Error = "Los apellidos no deben contener números.";
-    }
-    if (!$apellidoValido2) {
-        $apellido2Error = "Los apellidos no deben contener números.";
+    if (!$apellidoValido) {
+        $apellido1Error = $apellido2Error = "Los apellidos no deben contener números.";
     }
     if (!$emailValido) {
         $emailError = "El email ingresado no es válido.";
@@ -46,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $passError = "La contraseña debe tener entre 4 y 8 caracteres.";
     }
 
-    if ($nombreValido && $apellidoValido1 && $apellidoValido2 && $emailValido && $passValido) {
+    if ($nombreValido && $apellidoValido && $emailValido && $passValido) {
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -59,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $conn->query($sqlVerificar);
 
         if ($result->num_rows > 0) {
-
             $emailExiste = true;
             echo "El email ingresado ya está registrado.";
             header("Location: index.php");
@@ -73,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: exito.php");
             $conn->close();
             exit;
-
         }
 
         echo "Error al registrar los datos en la base de datos: " . $conn->error;
@@ -102,26 +86,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="nombre">Nombre*</label>
         <input type="text" name="nombre" id="nombre" />
-        <p id="nombreError" class="error"></p>
+        <p class="error"><?php echo $nombreError; ?></p>
 
         <label for="apellido1">Primer apellido*</label>
         <input type="text" name="apellido1" id="apellido1" />
-        <p id="apellido1Error" class="error"></p>
+        <p class="error"><?php echo $apellido1Error; ?></p>
 
         <label for="apellido2">Segundo apellido*</label>
         <input type="text" name="apellido2" id="apellido2" />
-        <p id="apellido2Error" class="error"></p>
+        <p class="error"><?php echo $apellido2Error; ?></p>
 
         <label for="email">Email*</label>
         <input type="email" name="email" id="email" />
-        <p id="emailError" class="error"></p>
+        <p class="error"><?php echo $emailError; ?></p>
 
         <label for="login">Login*</label>
         <input type="text" name="login" id="login" />
 
         <label for="pass">Contraseña*</label>
         <input type="password" name="pass" id="pass" />
-        <p id="passError" class="error"></p>
+        <p class="error"><?php echo $passError; ?></p>
 
         <input class="form-btn" name="submit" type="submit" value="Registrarse" />
 
@@ -132,11 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             var emailInput = document.getElementById('email');
             var passInput = document.getElementById('pass');
 
-            var nombreError = document.getElementById('nombreError');
-            var apellido1Error = document.getElementById('apellido1Error');
-            var apellido2Error = document.getElementById('apellido2Error');
-            var emailError = document.getElementById('emailError');
-            var passError = document.getElementById('passError');
+            var nombreError = document.querySelector('input[name="nombre"] + p.error');
+            var apellido1Error = document.querySelector('input[name="apellido1"] + p.error');
+            var apellido2Error = document.querySelector('input[name="apellido2"] + p.error');
+            var emailError = document.querySelector('input[name="email"] + p.error');
+            var passError = document.querySelector('input[name="pass"] + p.error');
 
             nombreInput.addEventListener('input', validarNombre);
             apellido1Input.addEventListener('input', validarApellido1);
@@ -155,33 +139,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             function validarApellido(apellido) {
-                var apellidoValido = /^[A-Za-z]+$/.test(apellido);
+                var apellidoValido = /^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/.test(apellido);
 
                 if (!apellidoValido) {
-                    return 'El apellido no debe contener números y no puede estar vacío.';
+                    return 'Los apellidos no deben contener números y no pueden estar vacíos.';
                 } else {
                     return '';
                 }
             }
 
             function validarApellido1() {
-
-                apellido1Error.textContent = validarApellido(apellido1Input.value)
-
+                apellido1Error.textContent = validarApellido(apellido1Input.value);
             }
 
             function validarApellido2() {
-
-                apellido2Error.textContent = validarApellido(apellido2Input.value)
-
+                apellido2Error.textContent = validarApellido(apellido2Input.value);
             }
 
             function validarEmail() {
-                
-                var email = emailInput.value.trim(); // Eliminar espacios en blanco al inicio y al final
-                var emailValido = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+                var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
-                if (email === '') {
+                if (emailInput.value === '') {
                     emailError.textContent = 'Debes ingresar un email.';
                 } else if (!emailValido) {
                     emailError.textContent = 'El email ingresado no es válido.';
@@ -191,31 +169,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             function validarPass() {
-                var passValido = /^.{4,8}$/.test(passInput.value);
+                var passValido = /^[A-Za-z0-9]{4,8}$/.test(passInput.value);
 
                 if (!passValido) {
-                    passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres.';
+                    passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres alfanuméricos.';
                 } else {
                     passError.textContent = '';
                 }
             }
 
-            registroForm.addEventListener('submit', function (event) {
+            document.getElementById('registroForm').addEventListener('submit', function (event) {
                 validarNombre();
                 validarApellido1();
                 validarApellido2();
                 validarEmail();
                 validarPass();
 
-                var errores = document.querySelectorAll('.error');
-
-                if (errores.length > 0) {
-                    event.preventDefault();
+                if (!nombreError.textContent && !apellido1Error.textContent && !apellido2Error.textContent && !emailError.textContent && !passError.textContent) {
+                    return;
                 }
+
+                event.preventDefault();
             });
         </script>
     </form>
-
 </body>
 
 </html>
