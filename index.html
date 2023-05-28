@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio Samsung Desarrolladoras</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <form action="procesar_formulario.php" method="post">
+
+        <h1>Formulario de registro</h1>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required/>
+
+            <label for="apellido1">Primer apellido</label>
+            <input type="text" name="apellido1" id="apellido1" required/>
+
+            <label for="apellido2">Segundo apellido</label>
+            <input type="text" name="apellido2" id="apellido2" required/>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required/>
+            
+            <label for="login">Login</label>
+            <input type="text" name="login" id="login" required/>
+
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass" id="pass" required/>
+
+            <input class="form-btn" name="submit" type="submit" value="Registrarse"/>
+        </form>              
+
+</body>
+</html>
