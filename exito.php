@@ -2,11 +2,59 @@
 <html>
 <head>
   <title>Éxito</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      display: none; /* Ocultar inicialmente la tabla */
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f9f9f9;
+    }
+
+    a {
+      color: #0066cc;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function mostrarTabla() {
+      var tabla = document.getElementById("tabla");
+      tabla.style.display = "table"; // Mostrar la tabla al hacer clic en el botón
+    }
+  </script>
 </head>
 
 <body>
   <h1>Registro exitoso</h1>
   <p>¡Se ha registrado correctamente!</p>
+
+  <button onclick="mostrarTabla()">Mostrar tabla</button>
 
   <?php
   $servername = "localhost";
@@ -25,7 +73,7 @@
 
   if ($result->num_rows > 0) {
     echo "<h2>Datos registrados</h2>";
-    echo "<table>";
+    echo "<table id='tabla'>";
     echo "<tr><th>Nombre</th><th>Apellido1</th><th>Apellido2</th><th>Email</th><th>Login</th><th>Contraseña</th></tr>";
 
     while ($row = $result->fetch_assoc()) {
