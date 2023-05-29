@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Éxito</title>
   <link href="exito_style.css" rel="stylesheet" type="text/css">
@@ -12,16 +13,10 @@
   <button onclick="mostrarTabla()">Mostrar tabla</button>
 
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "cursosql";
 
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  require_once 'functions.php';
 
-  if ($conn->connect_error) {
-    die("Error en la conexión a la base de datos: " . $conn->connect_error);
-  }
+  $conn = conectarDB();
 
   $sql = "SELECT * FROM usuarios_formulario";
   $result = $conn->query($sql);
@@ -44,16 +39,20 @@
     echo "</table>";
 
   } else {
+
     echo "<p>No se encontraron datos registrados.</p>";
+
   }
 
-  $conn->close();
+  cerrarConexion($conn);
+  
   ?>
 
   <br>
-  
+
   <a href="index.php">Volver al formulario</a>
 
   <script src="exito_script.js"></script>
 </body>
+
 </html>
