@@ -32,27 +32,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($nombreValido && $apellidoValido && $emailValido && $passValido) {
 
-        $conn = conectarDB();
+        try {
 
-        $emailExiste = verificarEmailExistente($conn, $email);
+            $conn = conectarDB();
 
-        if ($emailExiste) {
+            $emailExiste = verificarEmailExistente($conn, $email);
+
+            if ($emailExiste) {
+                cerrarConexion($conn);
+                echo "<script>alert('El email ingresado ya está registrado.'); location.href = 'index.php';</script>"; //usando header( "Location: {$_SERVER['REQUEST_URI']}", true, 303 ); se me reinicia la página antes de que aparezca el mensaje, por lo que he optado por otro método
+                exit;
+            }
+
+            $registroExitoso = insertarUsuario($conn, $nombre, $apellido1, $apellido2, $email, $login, $pass);
+
+            if ($registroExitoso) {
+                cerrarConexion($conn);
+                header("Location: exito.php");
+                exit;
+            }
+
+            echo "Error al registrar los datos en la base de datos.";
             cerrarConexion($conn);
-            echo "<script>alert('El email ingresado ya está registrado.'); location.href = 'index.php';</script>"; //usando header( "Location: {$_SERVER['REQUEST_URI']}", true, 303 ); se me reinicia la página antes de que aparezca el mensaje, por lo que he optado por otro método
             exit;
+
+        } catch (mysqli_sql_exception $e) {
+            echo "Error de base de datos: " . $e->getMessage();
         }
-
-        $registroExitoso = insertarUsuario($conn, $nombre, $apellido1, $apellido2, $email, $login, $pass);
-
-        if ($registroExitoso) {
-            cerrarConexion($conn);
-            header("Location: exito.php");
-            exit;
-        }
-
-        echo "Error al registrar los datos en la base de datos.";
-        cerrarConexion($conn);
-        exit;
     }
 }
 ?>
