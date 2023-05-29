@@ -35,12 +35,17 @@ function verificarEmailExistente($conn, $email) {
     $sqlVerificar = "SELECT * FROM usuarios_formulario WHERE email='$email'";
     $result = $conn->query($sqlVerificar);
 
-    return ($result->num_rows > 0);
+    if ($result->num_rows > 0) {
+        return true;
+    }
+
+    return false;
 }
 
 function insertarUsuario($conn, $nombre, $apellido1, $apellido2, $email, $login, $pass) {
     $sqlInsertar = "INSERT INTO usuarios_formulario (NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EMAIL, LOG_IN, CONTRASEÑA) VALUES ('$nombre', '$apellido1', '$apellido2', '$email', '$login', '$pass')";
 
     return $conn->query($sqlInsertar);
+
 }
 ?>
