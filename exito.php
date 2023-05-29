@@ -21,7 +21,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      display: none; /* Ocultar inicialmente la tabla */
+      display: none; 
     }
 
     th, td {
@@ -45,7 +45,7 @@
   <script>
     function mostrarTabla() {
       var tabla = document.getElementById("tabla");
-      tabla.style.display = "table"; // Mostrar la tabla al hacer clic en el botón
+      tabla.style.display = "table";
     }
   </script>
 </head>
