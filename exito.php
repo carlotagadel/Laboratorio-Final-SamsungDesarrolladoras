@@ -2,52 +2,7 @@
 <html>
 <head>
   <title>Éxito</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    p {
-      color: #666;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      display: none; 
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ccc;
-    }
-
-    th {
-      background-color: #f9f9f9;
-    }
-
-    a {
-      color: #0066cc;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-  <script>
-    function mostrarTabla() {
-      var tabla = document.getElementById("tabla");
-      tabla.style.display = "table";
-    }
-  </script>
+  <link href="exito_style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -99,5 +54,6 @@
   
   <a href="index.php">Volver al formulario</a>
 
+  <script src="exito_script.js"></script>
 </body>
 </html>
