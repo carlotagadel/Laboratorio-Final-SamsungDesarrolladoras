@@ -86,26 +86,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="nombre">Nombre*</label>
         <input type="text" name="nombre" id="nombre" />
-        <p class="error"><?php echo $nombreError; ?></p>
+        <p class="error">
+            <?php echo $nombreError; ?>
+        </p>
 
         <label for="apellido1">Primer apellido*</label>
         <input type="text" name="apellido1" id="apellido1" />
-        <p class="error"><?php echo $apellido1Error; ?></p>
+        <p class="error">
+            <?php echo $apellido1Error; ?>
+        </p>
 
         <label for="apellido2">Segundo apellido*</label>
         <input type="text" name="apellido2" id="apellido2" />
-        <p class="error"><?php echo $apellido2Error; ?></p>
+        <p class="error">
+            <?php echo $apellido2Error; ?>
+        </p>
 
         <label for="email">Email*</label>
         <input type="email" name="email" id="email" />
-        <p class="error"><?php echo $emailError; ?></p>
+        <p class="error">
+            <?php echo $emailError; ?>
+        </p>
 
         <label for="login">Login*</label>
         <input type="text" name="login" id="login" />
 
         <label for="pass">Contraseña*</label>
         <input type="password" name="pass" id="pass" />
-        <p class="error"><?php echo $passError; ?></p>
+        <p class="error">
+            <?php echo $passError; ?>
+        </p>
 
         <input class="form-btn" name="submit" type="submit" value="Registrarse" />
 
@@ -131,7 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             function validarNombre() {
                 var nombreValido = /^[A-Za-z]+$/.test(nombreInput.value);
 
-                if (!nombreValido) {
+                if (nombreInput.value === '') {
+                    nombreError.textContent = 'Debes ingresar un nombre.';
+                } else if (!nombreValido) {
                     nombreError.textContent = 'El nombre no debe contener números.';
                 } else {
                     nombreError.textContent = '';
@@ -150,10 +162,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             function validarApellido1() {
                 apellido1Error.textContent = validarApellido(apellido1Input.value);
+                if (apellido1Input.value === '') {
+                    apellido1Error.textContent = 'Debes ingresar un primer apellido.';
+                }
             }
 
             function validarApellido2() {
                 apellido2Error.textContent = validarApellido(apellido2Input.value);
+                if (apellido2Input.value === '') {
+                    apellido2Error.textContent = 'Debes ingresar un segundo apellido.';
+                }
             }
 
             function validarEmail() {
@@ -171,7 +189,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             function validarPass() {
                 var passValido = /^[A-Za-z0-9]{4,8}$/.test(passInput.value);
 
-                if (!passValido) {
+                if (passInput.value === ''){
+                    passError.textContent = 'Debes ingresar una contraseña.';
+                } else if (!passValido) {
                     passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres alfanuméricos.';
                 } else {
                     passError.textContent = '';
