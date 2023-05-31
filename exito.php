@@ -3,7 +3,7 @@
 
 <head>
   <title>Éxito</title>
-  <link href="exito_style.css" rel="stylesheet" type="text/css">
+  <link href="styles/exito_style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -14,7 +14,8 @@
 
   <?php
 
-  require_once 'functions.php';
+  require_once 'includes/functions.php';
+  require_once 'config/config.php';
 
   $conn = conectarDB();
 
@@ -52,7 +53,7 @@
 
   <a href="index.php">Volver al formulario</a>
 
-  <script src="exito_script.js"></script>
+  <script src="scripts/exito_script.js"></script>
 </body>
 
 </html>
