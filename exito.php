@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !== true) {
+  header('Location: index.php');
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +55,7 @@
   }
 
   cerrarConexion($conn);
-  
+
   ?>
 
   <br>

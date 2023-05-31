@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registroExitoso = insertarUsuario($conn, $nombre, $apellido1, $apellido2, $email, $login, $pass);
 
             if ($registroExitoso) {
+                $_SESSION['acceso_autorizado'] = true;
                 cerrarConexion($conn);
                 header("Location: exito.php");
                 exit;
