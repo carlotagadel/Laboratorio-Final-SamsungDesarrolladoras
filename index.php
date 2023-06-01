@@ -4,6 +4,11 @@ session_start();
 require_once 'config.php';
 require_once 'functions.php';
 
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
 $nombreError = $apellido1Error = $apellido2Error = $emailError = $loginError = $passError = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombreError = "El nombre no debe contener números.";
     }
     if (!$apellidoValido) {
-        $apellido1Error = $apellido2Error = "Los apellidos no deben contener números.";
+        $apellido1Error = "Los apellidos no deben contener números.";
+        $apellido2Error = "Los apellidos no deben contener números.";
     }
     if (!$emailValido) {
         $emailError = "El email ingresado no es válido.";
@@ -40,6 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $conn = conectarDB();
 
+            if (!$conn) {
+                echo "Error al conectar a la base de datos.";
+                exit;
+            }
+
             $emailExiste = verificarEmailExistente($conn, $email);
 
             if ($emailExiste) {
@@ -52,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($registroExitoso) {
                 $_SESSION['acceso_autorizado'] = true;
-                cerrarConexion($conn);
                 header("Location: exito.php");
+                cerrarConexion($conn);
                 exit;
             }
 
@@ -65,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>

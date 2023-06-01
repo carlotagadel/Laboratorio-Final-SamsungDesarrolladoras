@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+require_once 'functions.php';
+require_once 'config.php';
+
 if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !== true) {
   header('Location: index.php');
   exit();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -23,9 +25,6 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
   <button onclick="mostrarTabla()">Mostrar tabla</button>
 
   <?php
-
-  require_once 'functions.php';
-  require_once 'config.php';
 
   $conn = conectarDB();
 
@@ -50,13 +49,10 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
     echo "</table>";
 
   } else {
-
     echo "<p>No se encontraron datos registrados.</p>";
-
   }
 
   cerrarConexion($conn);
-
   ?>
 
   <br>
@@ -67,4 +63,3 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 </body>
 
 </html>
-

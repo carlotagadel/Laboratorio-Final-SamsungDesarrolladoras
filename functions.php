@@ -1,4 +1,5 @@
 <?php
+
 function conectarDB() {
     global $servername, $username, $password, $dbname;
 
