@@ -7,12 +7,13 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Éxito</title>
-  <link href="styles/exito_style.css" rel="stylesheet" type="text/css">
+  <link href="exito_style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -66,3 +67,4 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 </body>
 
 </html>
+

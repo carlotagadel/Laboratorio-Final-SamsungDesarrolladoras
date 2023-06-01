@@ -27,6 +27,10 @@ function validarEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+function validarLogin($login) {
+    return (strlen($login) >= 3 && strlen($login) <= 10);
+}
+
 function validarContraseña($pass) {
     return (strlen($pass) >= 4 && strlen($pass) <= 8);
 }

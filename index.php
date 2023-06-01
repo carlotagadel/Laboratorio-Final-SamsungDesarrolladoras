@@ -1,8 +1,10 @@
 <?php
+session_start();
+
 require_once 'config.php';
 require_once 'functions.php';
 
-$nombreError = $apellido1Error = $apellido2Error = $emailError = $passError = "";
+$nombreError = $apellido1Error = $apellido2Error = $emailError = $loginError = $passError = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'] ?? '';
@@ -15,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombreValido = validarNombre($nombre);
     $apellidoValido = validarApellidos($apellido1, $apellido2);
     $emailValido = validarEmail($email);
+    $loginValido = validarLogin($login);
     $passValido = validarContraseña($pass);
 
     if (!$nombreValido) {
@@ -26,21 +29,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$emailValido) {
         $emailError = "El email ingresado no es válido.";
     }
+    if (!$loginValido) {
+        $loginError = "El login debe tener entre 3 y 10 caracteres.";
+    }
     if (!$passValido) {
         $passError = "La contraseña debe tener entre 4 y 8 caracteres.";
     }
 
-    if ($nombreValido && $apellidoValido && $emailValido && $passValido) {
-
+    if ($nombreValido && $apellidoValido && $emailValido && $loginValido && $passValido) {
         try {
-
             $conn = conectarDB();
 
             $emailExiste = verificarEmailExistente($conn, $email);
 
             if ($emailExiste) {
                 cerrarConexion($conn);
-                echo "<script>alert('El email ingresado ya está registrado.'); location.href = 'index.php';</script>"; //usando header( "Location: {$_SERVER['REQUEST_URI']}", true, 303 ); se me reinicia la página antes de que aparezca el mensaje, por lo que he optado por otro método
+                echo "<script>alert('El email ingresado ya está registrado.'); location.href = 'index.php';</script>";
                 exit;
             }
 
@@ -56,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error al registrar los datos en la base de datos.";
             cerrarConexion($conn);
             exit;
-
         } catch (mysqli_sql_exception $e) {
             echo "Error de base de datos: " . $e->getMessage();
         }
@@ -106,6 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="login">Login:</label>
         <input type="text" name="login" id="login" />
+        <p class="error">
+            <?php echo $loginError; ?>
+        </p>
+
 
         <label for="pass">Contraseña:</label>
         <input type="password" name="pass" id="pass" />
