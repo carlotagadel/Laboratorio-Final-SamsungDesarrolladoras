@@ -1,6 +1,6 @@
 <?php
-require_once 'config/config.php';
-require_once 'includes/functions.php';
+require_once 'config.php';
+require_once 'functions.php';
 
 $nombreError = $apellido1Error = $apellido2Error = $emailError = $passError = "";
 
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratorio Samsung Desarrolladoras</title>
-    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -80,34 +80,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h1>Formulario de registro</h1>
 
-        <label for="nombre">Nombre*</label>
+        <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" />
         <p class="error">
             <?php echo $nombreError; ?>
         </p>
 
-        <label for="apellido1">Primer apellido*</label>
+        <label for="apellido1">Primer apellido:</label>
         <input type="text" name="apellido1" id="apellido1" />
         <p class="error">
             <?php echo $apellido1Error; ?>
         </p>
 
-        <label for="apellido2">Segundo apellido*</label>
+        <label for="apellido2">Segundo apellido:</label>
         <input type="text" name="apellido2" id="apellido2" />
         <p class="error">
             <?php echo $apellido2Error; ?>
         </p>
 
-        <label for="email">Email*</label>
+        <label for="email">Email:</label>
         <input type="email" name="email" id="email" />
         <p class="error">
             <?php echo $emailError; ?>
         </p>
 
-        <label for="login">Login*</label>
+        <label for="login">Login:</label>
         <input type="text" name="login" id="login" />
 
-        <label for="pass">Contraseña*</label>
+        <label for="pass">Contraseña:</label>
         <input type="password" name="pass" id="pass" />
         <p class="error">
             <?php echo $passError; ?>
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </form>
 
-    <script src="scripts/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

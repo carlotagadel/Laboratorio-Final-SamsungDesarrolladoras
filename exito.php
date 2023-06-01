@@ -23,8 +23,8 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 
   <?php
 
-  require_once 'includes/functions.php';
-  require_once 'config/config.php';
+  require_once 'functions.php';
+  require_once 'config.php';
 
   $conn = conectarDB();
 
@@ -62,7 +62,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 
   <a href="index.php">Volver al formulario</a>
 
-  <script src="scripts/exito_script.js"></script>
+  <script src="exito_script.js"></script>
 </body>
 
 </html>

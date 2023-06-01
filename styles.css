@@ -1,0 +1,8 @@
+  .error {
+    color: #ff0000;
+    margin-bottom: 10px;
+  }
+
+.invalid {
+  border: 2px solid tomato;
+}
