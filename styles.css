@@ -6,3 +6,7 @@
 .invalid {
   border: 2px solid tomato;
 }
+
+.valid {
+  border: 2px solid green;
+}

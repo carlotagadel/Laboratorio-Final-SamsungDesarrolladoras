@@ -24,14 +24,17 @@ function validarNombre() {
     var nombreValido = /^[A-Za-z]+$/.test(nombreInput.value);
 
     if (nombreInput.value === '') {
-        nombreError.textContent = 'Debes ingresar un nombre.';
+        nombreError.textContent = 'Por favor, ingresa un nombre.';
         nombreInput.classList.add('invalid');
+        nombreInput.classList.remove('valid');
     } else if (!nombreValido) {
-        nombreError.textContent = 'El nombre no debe contener números.';
+        nombreError.textContent = 'El nombre no puede contener números.';
         nombreInput.classList.add('invalid');
+        nombreInput.classList.remove('valid');
     } else {
         nombreError.textContent = '';
         nombreInput.classList.remove('invalid');
+        nombreInput.classList.add('valid');
     }
 }
 
@@ -39,10 +42,10 @@ function validarApellido1() {
     var apellido1Valido = /^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/.test(apellido1Input.value);
 
     if (apellido1Input.value === '') {
-        apellido1Error.textContent = 'Debes ingresar un primer apellido.';
+        apellido1Error.textContent = 'Por favor, ingresa un primer apellido.';
         apellido1Input.classList.add('invalid');
     } else if (!apellido1Valido) {
-        apellido1Error.textContent = 'El apellido no debe contener números.';
+        apellido1Error.textContent = 'El apellido no puede contener números.';
         apellido1Input.classList.add('invalid');
     } else {
         apellido1Error.textContent = '';
@@ -54,10 +57,10 @@ function validarApellido2() {
     var apellido2Valido = /^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/.test(apellido2Input.value);
 
     if (apellido2Input.value === '') {
-        apellido2Error.textContent = 'Debes ingresar un segundo apellido.';
+        apellido2Error.textContent = 'Por favor, ingresa un segundo apellido.';
         apellido2Input.classList.add('invalid');
     } else if (!apellido2Valido) {
-        apellido2Error.textContent = 'El apellido no debe contener números.';
+        apellido2Error.textContent = 'El apellido no puede contener números.';
         apellido2Input.classList.add('invalid');
     } else {
         apellido2Error.textContent = '';
@@ -69,7 +72,7 @@ function validarEmail() {
     var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
     if (emailInput.value === '') {
-        emailError.textContent = 'Debes ingresar un email.';
+        emailError.textContent = 'Por favor, ingresa un email.';
         emailInput.classList.add('invalid');
     } else if (!emailValido) {
         emailError.textContent = 'El email ingresado no es válido.';
@@ -84,7 +87,7 @@ function validarLogin() {
     var loginValido = /^[A-Za-z0-9]{3,10}$/.test(loginInput.value);
 
     if (loginInput.value === '') {
-        loginError.textContent = 'Debes ingresar un login.';
+        loginError.textContent = 'Por favor, ingresa un login.';
         loginInput.classList.add('invalid');
     } else if (!loginValido) {
         loginError.textContent = 'El login debe tener entre 3 y 10 caracteres alfanuméricos.';
@@ -99,7 +102,7 @@ function validarPass() {
     var passValido = /^[A-Za-z0-9]{4,8}$/.test(passInput.value);
 
     if (passInput.value === '') {
-        passError.textContent = 'Debes ingresar una contraseña.';
+        passError.textContent = 'Por favor, ingresa una contraseña.';
         passInput.classList.add('invalid');
     } else if (!passValido) {
         passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres alfanuméricos.';
