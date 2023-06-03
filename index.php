@@ -91,69 +91,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <div class="login_form_container">
-        <div class="login_form">
+
+    <div class="container-page" id="Container">
+        <div class="register-container">
+            <h2>Formulario de registro</h2>
+
             <form action="index.php" method="post" id="registroForm">
 
-                <h2>Formulario de registro</h2>
-
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" placeholder="Nombre" name="nombre" class="input_text" id="nombre"
-                        autocomplete="off" />
+                    <input type="text" name="nombre" class="input-line" id="nombre" />
                     <p class="error">
                         <?php echo $nombreError; ?>
                     </p>
                 </div>
 
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="apellido1">Primer apellido:</label>
-                    <input type="text" placeholder="Primer apellido" name="apellido1" class="input_text" id="apellido1"
-                        autocomplete="off" />
+                    <input type="text" name="apellido1" class="input-line" id="apellido1" />
                     <p class="error">
                         <?php echo $apellido1Error; ?>
                     </p>
                 </div>
 
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="apellido2">Segundo apellido:</label>
-                    <input type="text" placeholder="Segundo apellido" name="apellido2" class="input_text" id="apellido2"
-                        autocomplete="off" />
+                    <input type="text" name="apellido2" class="input-line" id="apellido2" />
                     <p class="error">
                         <?php echo $apellido2Error; ?>
                     </p>
                 </div>
 
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="email">Email:</label>
-                    <input type="email" placeholder="Email" name="email" class="input_text" id="email"
-                        autocomplete="off" />
+                    <input type="email" name="email" class="input-line" id="email" />
                     <p class="error">
                         <?php echo $emailError; ?>
                     </p>
                 </div>
 
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="login">Login:</label>
-                    <input type="text" placeholder="Login" name="login" class="input_text" id="login"
-                        autocomplete="off" />
+                    <input type="text" name="login" class="input-line" id="login" />
                     <p class="error">
                         <?php echo $loginError; ?>
                     </p>
                 </div>
 
-                <div class="input_group">
+                <div class="input-line-container">
                     <label for="pass">Contraseña:</label>
-                    <input type="password" placeholder="Contraseña" name="pass" class="input_text" id="pass"
-                        autocomplete="off" />
+                    <input type="password" name="pass" class="input-line" id="pass" />
                     <p class="error">
                         <?php echo $passError; ?>
                     </p>
                 </div>
-                
-                <div class="button_group">
-                    <input class="form-btn" name="submit" type="submit" value="Registrarse" />
-                </div>
+
+                <input class="button-register" value="Registrarse" name="submit" type="submit" />
+
             </form>
         </div>
     </div>
