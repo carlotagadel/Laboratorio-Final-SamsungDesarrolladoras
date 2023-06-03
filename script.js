@@ -44,12 +44,15 @@ function validarApellido1() {
     if (apellido1Input.value === '') {
         apellido1Error.textContent = 'Por favor, ingresa un primer apellido.';
         apellido1Input.classList.add('invalid');
+        apellido1Input.classList.remove('valid');
     } else if (!apellido1Valido) {
         apellido1Error.textContent = 'El apellido no puede contener números.';
         apellido1Input.classList.add('invalid');
+        apellido1Input.classList.remove('valid');
     } else {
         apellido1Error.textContent = '';
         apellido1Input.classList.remove('invalid');
+        apellido1Input.classList.add('valid');
     }
 }
 
@@ -59,12 +62,15 @@ function validarApellido2() {
     if (apellido2Input.value === '') {
         apellido2Error.textContent = 'Por favor, ingresa un segundo apellido.';
         apellido2Input.classList.add('invalid');
+        apellido2Input.classList.remove('valid');
     } else if (!apellido2Valido) {
         apellido2Error.textContent = 'El apellido no puede contener números.';
         apellido2Input.classList.add('invalid');
+        apellido2Input.classList.remove('valid');
     } else {
         apellido2Error.textContent = '';
         apellido2Input.classList.remove('invalid');
+        apellido2Input.classList.add('valid');
     }
 }
 
@@ -74,12 +80,15 @@ function validarEmail() {
     if (emailInput.value === '') {
         emailError.textContent = 'Por favor, ingresa un email.';
         emailInput.classList.add('invalid');
+        emailInput.classList.remove('valid');
     } else if (!emailValido) {
         emailError.textContent = 'El email ingresado no es válido.';
         emailInput.classList.add('invalid');
+        emailInput.classList.remove('valid');
     } else {
         emailError.textContent = '';
         emailInput.classList.remove('invalid');
+        emailInput.classList.add('valid');
     }
 }
 
@@ -89,12 +98,15 @@ function validarLogin() {
     if (loginInput.value === '') {
         loginError.textContent = 'Por favor, ingresa un login.';
         loginInput.classList.add('invalid');
+        loginInput.classList.remove('valid');
     } else if (!loginValido) {
         loginError.textContent = 'El login debe tener entre 3 y 10 caracteres alfanuméricos.';
         loginInput.classList.add('invalid');
+        loginInput.classList.remove('valid');
     } else {
         loginError.textContent = '';
         loginInput.classList.remove('invalid');
+        loginInput.classList.add('valid');
     }
 }
 
@@ -104,12 +116,15 @@ function validarPass() {
     if (passInput.value === '') {
         passError.textContent = 'Por favor, ingresa una contraseña.';
         passInput.classList.add('invalid');
+        passInput.classList.remove('valid');
     } else if (!passValido) {
         passError.textContent = 'La contraseña debe tener entre 4 y 8 caracteres alfanuméricos.';
         passInput.classList.add('invalid');
+        passInput.classList.remove('valid');
     } else {
         passError.textContent = '';
         passInput.classList.remove('invalid');
+        passInput.classList.add('valid');
     }
 }
 
