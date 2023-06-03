@@ -91,50 +91,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <form action="index.php" method="post" id="registroForm">
+    <div class="login_form_container">
+        <div class="login_form">
+            <form action="index.php" method="post" id="registroForm">
 
-        <h1>Formulario de registro</h1>
+                <h2>Formulario de registro</h2>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" />
-        <p class="error">
-            <?php echo $nombreError; ?>
-        </p>
+                <div class="input_group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" placeholder="Nombre" name="nombre" class="input_text" id="nombre"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $nombreError; ?>
+                    </p>
+                </div>
 
-        <label for="apellido1">Primer apellido:</label>
-        <input type="text" name="apellido1" id="apellido1" />
-        <p class="error">
-            <?php echo $apellido1Error; ?>
-        </p>
+                <div class="input_group">
+                    <label for="apellido1">Primer apellido:</label>
+                    <input type="text" placeholder="Primer apellido" name="apellido1" class="input_text" id="apellido1"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $apellido1Error; ?>
+                    </p>
+                </div>
 
-        <label for="apellido2">Segundo apellido:</label>
-        <input type="text" name="apellido2" id="apellido2" />
-        <p class="error">
-            <?php echo $apellido2Error; ?>
-        </p>
+                <div class="input_group">
+                    <label for="apellido2">Segundo apellido:</label>
+                    <input type="text" placeholder="Segundo apellido" name="apellido2" class="input_text" id="apellido2"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $apellido2Error; ?>
+                    </p>
+                </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" />
-        <p class="error">
-            <?php echo $emailError; ?>
-        </p>
+                <div class="input_group">
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="Email" name="email" class="input_text" id="email"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $emailError; ?>
+                    </p>
+                </div>
 
-        <label for="login">Login:</label>
-        <input type="text" name="login" id="login" />
-        <p class="error">
-            <?php echo $loginError; ?>
-        </p>
+                <div class="input_group">
+                    <label for="login">Login:</label>
+                    <input type="text" placeholder="Login" name="login" class="input_text" id="login"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $loginError; ?>
+                    </p>
+                </div>
 
-
-        <label for="pass">Contraseña:</label>
-        <input type="password" name="pass" id="pass" />
-        <p class="error">
-            <?php echo $passError; ?>
-        </p>
-
-        <input class="form-btn" name="submit" type="submit" value="Registrarse" />
-
-    </form>
+                <div class="input_group">
+                    <label for="pass">Contraseña:</label>
+                    <input type="password" placeholder="Contraseña" name="pass" class="input_text" id="pass"
+                        autocomplete="off" />
+                    <p class="error">
+                        <?php echo $passError; ?>
+                    </p>
+                </div>
+                
+                <div class="button_group">
+                    <input class="form-btn" name="submit" type="submit" value="Registrarse" />
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 
