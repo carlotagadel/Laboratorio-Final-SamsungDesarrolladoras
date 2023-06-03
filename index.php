@@ -91,8 +91,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❅</div>
 
     <div class="container-page" id="Container">
+
         <div class="register-container">
             <h2>Formulario de registro</h2>
 
@@ -100,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" class="input-line" id="nombre" />
+                    <input type="text" name="nombre" class="nombre-input-line" id="nombre" />
                     <p class="error">
                         <?php echo $nombreError; ?>
                     </p>
@@ -108,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="apellido1">Primer apellido:</label>
-                    <input type="text" name="apellido1" class="input-line" id="apellido1" />
+                    <input type="text" name="apellido1" class="apellido1-input-line" id="apellido1" />
                     <p class="error">
                         <?php echo $apellido1Error; ?>
                     </p>
@@ -116,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="apellido2">Segundo apellido:</label>
-                    <input type="text" name="apellido2" class="input-line" id="apellido2" />
+                    <input type="text" name="apellido2" class="apellido2-input-line" id="apellido2" />
                     <p class="error">
                         <?php echo $apellido2Error; ?>
                     </p>
@@ -124,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" class="input-line" id="email" />
+                    <input type="email" name="email" class="email-input-line" id="email" />
                     <p class="error">
                         <?php echo $emailError; ?>
                     </p>
@@ -132,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="login">Login:</label>
-                    <input type="text" name="login" class="input-line" id="login" />
+                    <input type="text" name="login" class="login-input-line" id="login" />
                     <p class="error">
                         <?php echo $loginError; ?>
                     </p>
@@ -140,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="pass">Contraseña:</label>
-                    <input type="password" name="pass" class="input-line" id="pass" />
+                    <input type="password" name="pass" class="pass-input-line" id="pass" />
                     <p class="error">
                         <?php echo $passError; ?>
                     </p>
