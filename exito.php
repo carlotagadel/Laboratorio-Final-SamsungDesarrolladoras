@@ -19,9 +19,21 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 </head>
 
 <body>
+
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❅</div>
+
   <div class="container-body">
-      <h1>Registro exitoso</h1>
-      <p>¡Te has registrado correctamente!</p>
+    <h1>Registro exitoso</h1>
+    <p>¡Te has registrado correctamente!</p>
     <?php
 
     $conn = conectarDB();
@@ -35,7 +47,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
       echo "<button class='ocultar-button' onclick='ocultarTabla()'>Ocultar Tabla</button></div>";
       echo "<br/>";
       echo "<table id='tabla' style='display: none;'>";
-      echo "<tr><th>Nombre</th><th>Apellido1</th><th>Apellido2</th><th>Email</th><th>Login</th><th>Contraseña</th></tr></div>";
+      echo "<tr><th>Nombre</th><th>Primer apellido</th><th>Segundo apellido</th><th>Email</th><th>Login</th><th>Contraseña</th></tr></div>";
 
       while ($row = $result->fetch_assoc()) {
         echo "<tr>";
