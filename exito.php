@@ -22,8 +22,6 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
   <h1>Registro exitoso</h1>
   <p>¡Se ha registrado correctamente!</p>
 
-  <button onclick="mostrarTabla()">Mostrar tabla</button>
-
   <?php
 
   $conn = conectarDB();
@@ -33,7 +31,9 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 
   if ($result->num_rows > 0) {
     echo "<h2>Datos registrados</h2>";
-    echo "<table id='tabla'>";
+    echo "<button class='mostrar-button' onclick='mostrarTabla()'>Mostrar Tabla</button>";
+    echo "<button class='ocultar-button' onclick='ocultarTabla()'>Ocultar Tabla</button>";
+    echo "<table id='tabla' style='display: none;'>";
     echo "<tr><th>Nombre</th><th>Apellido1</th><th>Apellido2</th><th>Email</th><th>Login</th><th>Contraseña</th></tr>";
 
     while ($row = $result->fetch_assoc()) {
