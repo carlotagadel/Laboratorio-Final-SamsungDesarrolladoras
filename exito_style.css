@@ -1,38 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-  }
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/Background.jpg);
+  background-position: center;
+  background-size: cover;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
 
-  h1 {
-    color: #333;
-  }
+.container-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  p {
-    color: #666;
-  }
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    display: none; 
-  }
+.mostrar-button,
+.ocultar-button {
+  margin-right: 10px;
+}
 
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-  }
+h1 {
+  color: whitesmoke;
+}
 
-  th {
-    background-color: #f9f9f9;
-  }
+p {
+  color: #cfcccc;
+}
 
-  a {
-    color: #0066cc;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: none;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f9f9f9;
+}
+
+a {
+  color: #0066cc;
+}
+
+a:hover {
+  text-decoration: underline;
+}
