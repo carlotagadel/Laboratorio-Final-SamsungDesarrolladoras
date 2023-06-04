@@ -14,7 +14,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/Background.jpg);
   background-position: center;
   background-size: cover;
-  color: white;
+  color: whitesmoke;
 }
 
 .container-page {
@@ -27,7 +27,7 @@ body {
   padding: 1rem;
   transition: all 0.8s;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid white;
+  border: 1px solid whitesmoke;
   backdrop-filter: blur(10px);
 }
 
@@ -38,7 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: whitesmoke;
 }
 
 form {
@@ -74,7 +74,7 @@ label {
   border-bottom: 2px solid #CBCBCB;
   outline: none;
   margin-bottom: 5px;
-  color: white;
+  color: whitesmoke;
 }
 
 .button-register {
