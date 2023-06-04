@@ -30,7 +30,7 @@ function validarNombre() {
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else if (!nombreValido) {
-        nombreError.textContent = 'El nombre no puede contener números.';
+        nombreError.textContent = 'Formato de nombre inválido, por favor revísalo.';
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else {
@@ -49,7 +49,7 @@ function validarApellido1() {
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else if (!apellido1Valido) {
-        apellido1Error.textContent = 'El apellido no puede contener números.';
+        apellido1Error.textContent = 'Formato de apellido inválido, por favor revísalo.';
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else {
@@ -69,7 +69,7 @@ function validarApellido2() {
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else if (!apellido2Valido) {
-        apellido2Error.textContent = 'El apellido no puede contener números.';
+        apellido2Error.textContent = 'Formato de apellido inválido, por favor revísalo.';
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else {
@@ -88,7 +88,7 @@ function validarEmail() {
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else if (!emailValido) {
-        emailError.textContent = 'El email ingresado no es válido.';
+        emailError.textContent = 'Formato de email inválido, por favor revísalo.';
         inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
     } else {

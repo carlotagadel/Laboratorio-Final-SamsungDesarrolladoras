@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombreError = "El nombre no debe contener números.";
     }
     if (!$apellidoValido) {
-        $apellido1Error = "Los apellidos no deben contener números.";
-        $apellido2Error = "Los apellidos no deben contener números.";
+        $apellido1Error = "El primer apellido no debe contener números.";
+        $apellido2Error = "El segundo apellido no debe contener números.";
     }
     if (!$emailValido) {
         $emailError = "El email ingresado no es válido.";
