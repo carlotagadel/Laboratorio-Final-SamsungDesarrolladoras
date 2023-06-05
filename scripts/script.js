@@ -13,15 +13,15 @@ var loginError = document.querySelector('input[name="login"] + p.error');
 var passError = document.querySelector('input[name="pass"] + p.error');
 var inputLine = document.querySelector('.input-line');
 
-nombreInput.addEventListener('input', validarNombre);
-apellido1Input.addEventListener('input', validarApellido1);
-apellido2Input.addEventListener('input', validarApellido2);
-emailInput.addEventListener('input', validarEmail);
-loginInput.addEventListener('input', validarLogin);
-passInput.addEventListener('input', validarPass);
+nombreInput.addEventListener('input', validaNombre);
+apellido1Input.addEventListener('input', validaApellido1);
+apellido2Input.addEventListener('input', validaApellido2);
+emailInput.addEventListener('input', validaEmail);
+loginInput.addEventListener('input', validaLogin);
+passInput.addEventListener('input', validaPass);
 
 
-function validarNombre() {
+function validaNombre() {
     var nombreValido = /^[A-Za-z]+$/.test(nombreInput.value);
     var inputLine = document.querySelector('.nombre-input-line');
 
@@ -40,7 +40,7 @@ function validarNombre() {
     }
 }
 
-function validarApellido1() {
+function validaApellido1() {
     var apellido1Valido = /^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/.test(apellido1Input.value);
     var inputLine = document.querySelector('.apellido1-input-line');
 
@@ -59,7 +59,7 @@ function validarApellido1() {
     }
 }
 
-function validarApellido2() {
+function validaApellido2() {
     var apellido2Valido = /^[A-Za-záéíóúÁÉÍÓÚüÜ]+$/.test(apellido2Input.value);
     var inputLine = document.querySelector('.apellido2-input-line');
 
@@ -79,7 +79,7 @@ function validarApellido2() {
     }
 }
 
-function validarEmail() {
+function validaEmail() {
     var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
     var inputLine = document.querySelector('.email-input-line');
 
@@ -98,18 +98,14 @@ function validarEmail() {
     }
 }
 
-function validarLogin() {
-    var loginValido = /^[a-zA-Z0-9_-]{3,10}$/.test(loginInput.value);
+function validaLogin() {
+    var loginInputValue = loginInput.value;
     var inputLine = document.querySelector('.login-input-line');
 
-    if (loginInput.value === '') {
+    if (loginInputValue === '') {
         loginError.textContent = 'Por favor, ingresa un login.';
-        inputLine.classList.add('invalid');
         inputLine.classList.remove('valid');
-    } else if (!loginValido) {
-        loginError.textContent = 'El login debe tener entre 3 y 10 caracteres.';
         inputLine.classList.add('invalid');
-        inputLine.classList.remove('valid');
     } else {
         loginError.textContent = '';
         inputLine.classList.remove('invalid');
@@ -117,8 +113,8 @@ function validarLogin() {
     }
 }
 
-function validarPass() {
-    var passValido = /^[A-Za-z0-9]{4,8}$/.test(passInput.value);
+function validaPass() {
+    var passValido = /^.{4,8}$/.test(passInput.value);
     var inputLine = document.querySelector('.pass-input-line');
 
     if (passInput.value === '') {
@@ -137,12 +133,12 @@ function validarPass() {
 }
 
 document.getElementById('registroForm').addEventListener('submit', function (event) {
-    validarNombre();
-    validarApellido1();
-    validarApellido2();
-    validarEmail();
-    validarLogin();
-    validarPass();
+    validaNombre();
+    validaApellido1();
+    validaApellido2();
+    validaEmail();
+    validaLogin();
+    validaPass();
 
     if (
         !nombreError.textContent &&

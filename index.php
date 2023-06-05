@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $emailError = "El email ingresado no es válido.";
     }
     if (!$loginValido) {
-        $loginError = "El login debe tener entre 3 y 10 caracteres.";
+        $loginError = "El login es un campo obligatorio.";
     }
     if (!$passValido) {
         $passError = "La contraseña debe tener entre 4 y 8 caracteres.";
