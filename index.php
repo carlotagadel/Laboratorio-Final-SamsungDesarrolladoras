@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once 'config.php';
-require_once 'functions.php';
+require_once 'config/config.php';
+require_once 'utils/functions.php';
 
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratorio Samsung Desarrolladoras</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
 
 </body>
 

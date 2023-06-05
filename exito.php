@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once 'functions.php';
-require_once 'config.php';
+require_once 'utils/functions.php';
+require_once 'config/config.php';
 
 if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !== true) {
   header('Location: index.php');
@@ -15,7 +15,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 
 <head>
   <title>Éxito</title>
-  <link href="exito_style.css" rel="stylesheet" type="text/css">
+  <link href="styles/exito_style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['acceso_autorizado']) || $_SESSION['acceso_autorizado'] !==
 
     <a href="index.php">Volver al formulario</a>
 
-    <script src="exito_script.js"></script>
+    <script src="scripts/exito_script.js"></script>
 
   </div>
 </body>

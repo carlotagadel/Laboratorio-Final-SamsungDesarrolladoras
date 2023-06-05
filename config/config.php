@@ -4,4 +4,5 @@ $servername = "localhost";
 $username = "root";
 $password = '';
 $dbname = "cursosql";
+
 ?>

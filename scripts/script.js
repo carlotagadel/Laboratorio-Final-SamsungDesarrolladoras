@@ -99,7 +99,7 @@ function validarEmail() {
 }
 
 function validarLogin() {
-    var loginValido = /^[A-Za-z0-9]{3,10}$/.test(loginInput.value);
+    var loginValido = /^[a-zA-Z0-9_-]{3,10}$/.test(loginInput.value);
     var inputLine = document.querySelector('.login-input-line');
 
     if (loginInput.value === '') {
