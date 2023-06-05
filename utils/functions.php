@@ -17,6 +17,7 @@ function cerrarConexion($conn)
 {
     $conn->close();
 }
+
 function camposRellenados($nombre, $apellido1, $apellido2, $email, $login, $pass)
 {
     if (empty($nombre) || empty($apellido1) || empty($apellido2) || empty($email) || empty($login) || empty($pass)) {
