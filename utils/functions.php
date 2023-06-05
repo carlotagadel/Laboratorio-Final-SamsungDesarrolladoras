@@ -42,12 +42,12 @@ function validarEmail($email)
 
 function validarLogin($login)
 {
-    return (strlen($login) >= 3 && strlen($login) <= 10);
+    return (strlen($login) >= 3 && strlen($login) <= 10) && preg_match('/^[a-zA-Z0-9_-]{3,10}$/', $login);
 }
 
 function validarContraseña($pass)
 {
-    return (strlen($pass) >= 4 && strlen($pass) <= 8);
+    return (strlen($pass) >= 4 && strlen($pass) <= 8) && preg_match('/^[A-Za-z0-9]{4,8}$/', $pass);
 }
 
 function verificarEmailExistente($conn, $email)
