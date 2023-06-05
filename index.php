@@ -19,6 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = $_POST['login'] ?? '';
     $pass = $_POST['pass'] ?? '';
 
+    if (!camposRellenados($nombre, $apellido1, $apellido2, $email, $login, $pass)) {
+        echo "Todos los campos son obligatorios.";
+        exit;
+    }
+
     $nombreValido = validarNombre($nombre);
     $apellidoValido = validarApellidos($apellido1, $apellido2);
     $emailValido = validarEmail($email);
@@ -111,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" class="nombre-input-line" id="nombre" autocomplete="off"/>
+                    <input type="text" name="nombre" class="nombre-input-line" id="nombre" autocomplete="off" />
                     <p class="error">
                         <?php echo $nombreError; ?>
                     </p>
@@ -119,7 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="apellido1">Primer apellido:</label>
-                    <input type="text" name="apellido1" class="apellido1-input-line" id="apellido1" autocomplete="off"/>
+                    <input type="text" name="apellido1" class="apellido1-input-line" id="apellido1"
+                        autocomplete="off" />
                     <p class="error">
                         <?php echo $apellido1Error; ?>
                     </p>
@@ -127,7 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="apellido2">Segundo apellido:</label>
-                    <input type="text" name="apellido2" class="apellido2-input-line" id="apellido2" autocomplete="off"/>
+                    <input type="text" name="apellido2" class="apellido2-input-line" id="apellido2"
+                        autocomplete="off" />
                     <p class="error">
                         <?php echo $apellido2Error; ?>
                     </p>
@@ -135,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" class="email-input-line" id="email" autocomplete="off"/>
+                    <input type="email" name="email" class="email-input-line" id="email" autocomplete="off" />
                     <p class="error">
                         <?php echo $emailError; ?>
                     </p>
@@ -143,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="login">Login:</label>
-                    <input type="text" name="login" class="login-input-line" id="login" autocomplete="off"/>
+                    <input type="text" name="login" class="login-input-line" id="login" autocomplete="off" />
                     <p class="error">
                         <?php echo $loginError; ?>
                     </p>
@@ -151,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-line-container">
                     <label for="pass">Contraseña:</label>
-                    <input type="password" name="pass" class="pass-input-line" id="pass" autocomplete="off"/>
+                    <input type="password" name="pass" class="pass-input-line" id="pass" autocomplete="off" />
                     <p class="error">
                         <?php echo $passError; ?>
                     </p>
